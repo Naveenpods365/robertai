@@ -1,10 +1,10 @@
 [build]
-  # Directory to change to before starting the build
+  # Base directory for the build
   base = "/"
-  # Custom build command for Netlify
-  command = "npm run netlify-build"
-  # Directory containing the deploy-ready files
-  publish = "dist"
+  # Install dependencies and build both client and server
+  command = "npm install && npm run build"
+  # Publish directory (relative to the base directory)
+  publish = "client/dist"
   # Directory containing Netlify Functions
   functions = "netlify/functions"
 
@@ -13,6 +13,22 @@
   NODE_VERSION = "20"
   # Enable Node.js process to use ES modules
   NPM_FLAGS = "--legacy-peer-deps"
+
+# Configure redirects for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
 # Configure redirects for client-side routing
 [[redirects]]

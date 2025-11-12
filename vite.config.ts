@@ -32,7 +32,7 @@ export default defineConfig({
   },
   root: resolvePath("client"),
   build: {
-    outDir: resolvePath("../dist"),
+    outDir: resolvePath("dist"),
     emptyOutDir: true,
     rollupOptions: {
       output: {
