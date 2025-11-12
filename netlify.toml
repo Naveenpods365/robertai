@@ -1,12 +1,12 @@
 [build]
-  # Base directory for the build
-  base = "client"
+  # Base directory is the project root
+  base = "/"
   # Install dependencies and build the app
-  command = "npm install && npm run build"
-  # Correct publish path (no extra 'client/')
-  publish = "dist"
+  command = "cd client && npm install && npm run build"
+  # Publish the dist folder from the client directory
+  publish = "client/dist"
   # Directory containing Netlify Functions (if used)
-  functions = "../netlify/functions"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -26,4 +26,4 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;"
