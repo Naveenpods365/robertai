@@ -1,10 +1,10 @@
 [build]
   # Base directory for the build
-  base = "client"
+  base = "/"
   # Install dependencies and build both client and server
-  command = "npm install && npm run build"
+  command = "npm install && npx vite build"
   # Publish directory (relative to the base directory)
-  publish = "dist"
+  publish = "client/dist"
   # Directory containing Netlify Functions
   functions = "netlify/functions"
 
