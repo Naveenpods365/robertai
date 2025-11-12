@@ -3,10 +3,10 @@
   base = "client"
   # Install dependencies and build the app
   command = "npm install && npm run build"
-  # The folder to deploy
-  publish = "client/dist"
-  # Directory containing Netlify Functions (if you use them)
-  functions = "netlify/functions"
+  # Correct publish path (no extra 'client/')
+  publish = "dist"
+  # Directory containing Netlify Functions (if used)
+  functions = "../netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
