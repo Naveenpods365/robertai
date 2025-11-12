@@ -1,0 +1,260 @@
+Angelic Land Tenant Portal – Farmer Dashboard (Canada Agriculture UI)
+
+Prompt Text:
+Create a clean, friendly, and data-focused tenant portal dashboard for Angelic Land.
+ Visual inspiration: use the same style and layout rhythm as Agrobe and Farm Management System UIs (soft panels, card-based metrics, rounded corners, left navigation sidebar).
+ Keep Andjelic Land’s content tone (warm, real, Canadian farmland storytelling).
+ The design must feel approachable for everyday farmers — simple, modern, but not overly futuristic.
+
+🎨 Design Style
+Color Palette (inspired by Andjelic Land):
+
+
+Deep Green #1C7C54 — primary tone
+
+
+Light Sage #EAF5EE — backgrounds
+
+
+Cream White #FAF7F2 — cards
+
+
+Accent Gold #F2C94C — highlights
+
+
+Typography:
+
+
+Headers: Inter SemiBold
+
+
+Text: Open Sans
+
+
+Numeric Data: JetBrains Mono
+
+
+Visual style:
+
+
+Rounded corners (16–20px)
+
+
+Soft shadows under cards
+
+
+Subtle gradient backgrounds
+
+
+Calm hover animations
+
+
+
+🧭 Layout Overview
+Left Sidebar
+Profile block: “John Mason – Tenant Farmer” with profile image
+
+
+Menu items:
+
+
+Dashboard 🌾
+
+
+My Farms
+
+
+Crop Performance
+
+
+Finance & Lease
+
+
+Weather
+
+
+Settings ⚙️
+
+
+Add farm button at bottom: + Add Farm
+
+
+
+Top Bar
+Logo: Angelic Land
+
+
+Weather info (e.g. “24°C | Sunny in Saskatchewan ☀️”)
+
+
+Search field “Search crop or field”
+
+
+Notification bell 🔔
+
+
+“🎙️ Talk to Robby” button
+
+
+
+Main Dashboard Cards (Hero Row)
+Total Acreage Managed
+
+
+Crop Yield this Season
+
+
+Lease Term Remaining
+
+
+Active Loans / Credit
+ Each card uses light green gradients, icon top-left, number bold center, short subtitle below.
+
+
+
+Farm Overview Section
+Two-column layout:
+Left Side (Map/Visual):
+Image or satellite map of the farm
+
+
+Crop markers or hover pop-ups for each field
+
+
+Right Side (Stats Cards):
+Air Temperature: 28°C
+
+
+Moisture: 34% (Good)
+
+
+pH: 7.3 (Balanced)
+
+
+Rain Forecast: 3 days this week
+
+
+Yield Growth Chart (Bar chart Jan–Oct)
+
+
+
+Crop Performance Section
+Tabs: By Category / By Health
+
+
+Donut Chart: “Fruits 20%, Grains 60%, Vegetables 20%”
+
+
+Progress bars for each crop:
+
+
+Wheat – 95% Matured
+
+
+Barley – 70% Ripening
+
+
+Oats – 40% Growing
+
+
+Micro animation: bars fill on load
+
+
+
+Lease & Finance
+Table:
+
+
+Farm ID
+Lease Term
+Rent Due
+Status
+RM 125
+2024–2027
+$1,850
+Active
+RM 233
+2025–2028
+$2,100
+Active
+
+
+
+
+Card: “You’re eligible for CAD $12,000 loan using stored receipts.”
+
+
+Button: Apply for Credit (green glow hover)
+
+
+
+AI Advisory Panel (Robby)
+Sidebar pop-up or floating widget:
+
+
+“Hey Frank 👋 Need to know which crop to plant next?”
+
+
+Quick action buttons:
+
+
+🌦️ Weather forecast
+
+
+💧 Soil advice
+
+
+📈 Price trends
+
+
+When listening, show animated mic waveform
+
+
+
+Reports & Graphs
+Line chart: “Rainfall vs Yield”
+
+
+Pie chart: “Land Use Distribution”
+
+
+Mini bar charts: monthly profit trend
+
+
+
+FAQ + Support
+Accordion:
+
+
+“How do I renew my lease?”
+
+
+“How to upload warehouse receipts?”
+
+
+“What if I need to update my crop info?”
+
+
+Help link: “Contact Tenant Support”
+
+
+
+Footer
+“Powered by Angelic AI — Helping Canadian farmers grow with confidence.”
+ Links: Help | Contact | Terms | Privacy
+
+✨ Micro-Interactions
+Soft hover lift on cards
+
+
+Data counters animate (0 → actual value)
+
+
+Weather icon moves slightly
+
+
+Sidebar expands smoothly
+
+
+Voice button pulses slowly
+
