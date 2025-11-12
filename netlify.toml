@@ -1,0 +1,44 @@
+[build]
+  # Directory to change to before starting the build
+  base = "/"
+  # Default build command
+  command = "npm run build"
+  # Directory containing the deploy-ready files
+  publish = "dist"
+  # Directory containing Netlify Functions
+  functions = "netlify/functions"
+
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "20"
+  # Enable Node.js process to use ES modules
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Configure redirects for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Configure build settings
+[context.production]
+  command = "npm run build"
+  publish = "dist"
+
+# Development settings (used when running `netlify dev`)
+[dev]
+  command = "npm run dev"
+  port = 3000
+  targetPort = 3000
+  publish = "dist"
+  autoLaunch = true
+
+# Add security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;"

@@ -1,8 +1,97 @@
 import type { Config } from "tailwindcss";
 
+// Helper to create absolute paths
+const resolvePath = (p: string) => require('path').resolve(__dirname, p);
+
 export default {
   darkMode: ["class"],
-  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./client/index.html",
+    "./client/src/**/*.{js,jsx,ts,tsx}",
+    "./client/src/**/*.css",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./pages/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@radix-ui/**/*.{js,jsx,ts,tsx}"
+  ],
+  safelist: [
+    // Layout
+    'min-h-screen',
+    'w-full',
+    
+    // Background and text colors
+    'bg-background',
+    'text-foreground',
+    'border-border',
+    'bg-card',
+    'text-card-foreground',
+    'bg-popover',
+    'text-popover-foreground',
+    'bg-primary',
+    'text-primary-foreground',
+    'bg-secondary',
+    'text-secondary-foreground',
+    'bg-muted',
+    'text-muted-foreground',
+    'bg-accent',
+    'text-accent-foreground',
+    'bg-destructive',
+    'text-destructive-foreground',
+    
+    // Border colors
+    'border-border',
+    'border-input',
+    'border-ring',
+    
+    // States
+    'hover:bg-accent',
+    'hover:text-accent-foreground',
+    'focus-visible:outline-none',
+    'focus-visible:ring-2',
+    'focus-visible:ring-ring',
+    'focus-visible:ring-offset-2',
+    'focus-visible:ring-offset-background',
+    'disabled:opacity-50',
+    'disabled:pointer-events-none',
+    
+    // Typography
+    'text-sm',
+    'text-base',
+    'font-medium',
+    'leading-none',
+    'tracking-tight',
+    'text-balance',
+    
+    // Spacing
+    'p-6',
+    'pt-12',
+    'pb-8',
+    'px-4',
+    'py-2',
+    'space-y-4',
+    
+    // Flex and Grid
+    'flex',
+    'flex-col',
+    'items-center',
+    'justify-center',
+    'gap-4',
+    'w-full',
+    
+    // Sizing
+    'max-w-[1400px]',
+    'mx-auto',
+    
+    // Transitions
+    'transition-colors',
+    'duration-200',
+    
+    // Custom classes
+    'bg-background',
+    'text-foreground',
+    'border-border'
+  ],
   theme: {
     extend: {
       borderRadius: {
@@ -10,10 +99,14 @@ export default {
         md: "0.75rem", /* 12px */
         sm: "0.5rem", /* 8px */
       },
+      borderColor: {
+        DEFAULT: "hsl(var(--border))",
+        border: "hsl(var(--border))",
+      },
       colors: {
-        background: "hsl(var(--background) / <alpha-value>)",
-        foreground: "hsl(var(--foreground) / <alpha-value>)",
-        border: "hsl(var(--border) / <alpha-value>)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        border: "hsl(var(--border))",
         input: "hsl(var(--input) / <alpha-value>)",
         card: {
           DEFAULT: "hsl(var(--card) / <alpha-value>)",

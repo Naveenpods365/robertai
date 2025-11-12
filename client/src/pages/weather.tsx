@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { Card } from "@/components/ui/card";
-import { PageSkeleton, ErrorState } from "@/components/loading-skeleton";
+import { Card } from "../components/ui/card";
+import { PageSkeleton, ErrorState } from "../components/loading-skeleton";
 import { Sun, Cloud, CloudRain, Wind, Droplets, Thermometer } from "lucide-react";
 import type { Weather } from "@shared/schema";
 

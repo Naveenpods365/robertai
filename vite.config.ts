@@ -1,40 +1,67 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { fileURLToPath } from 'url';
+
+// Get the directory name in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Helper to create absolute paths
+const resolvePath = (p: string) => path.resolve(__dirname, p);
 
 export default defineConfig({
   plugins: [
-    react(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
-        ]
-      : []),
+    react({
+      jsxImportSource: 'react',
+      babel: {
+        plugins: [
+          ["@babel/plugin-transform-react-jsx", {
+            "runtime": "automatic"
+          }]
+        ],
+      },
+    }),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": resolvePath("client/src"),
+      "@shared": resolvePath("shared"),
+      "@assets": resolvePath("attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: resolvePath("client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: resolvePath("dist"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
   },
   server: {
+    port: 3000,
+    strictPort: true,
     fs: {
       strict: true,
       deny: ["**/.*"],
     },
+  },
+  preview: {
+    port: 3000,
+    strictPort: true,
+  },
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      '@radix-ui/react-toast',
+      'class-variance-authority',
+      'lucide-react',
+    ],
   },
 });

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
-import { ErrorState } from "@/components/loading-skeleton";
+import { Card } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Skeleton } from "../components/ui/skeleton";
+import { ErrorState } from "../components/loading-skeleton";
 import { MapPin, TrendingUp } from "lucide-react";
 import { Plus } from "lucide-react";
 import type { Farm, Crop } from "@shared/schema";

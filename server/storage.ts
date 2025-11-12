@@ -48,6 +48,15 @@ export class MemStorage implements IStorage {
     this.crops = new Map();
     this.leases = new Map();
     this.notifications = [];
+    this.weather = {
+      id: 'default-weather',
+      location: 'Saskatchewan',
+      temperature: 22.5,
+      condition: 'Sunny',
+      humidity: 65,
+      rainForecast: 2,
+      lastUpdated: new Date()
+    };
     
     // Initialize with realistic Saskatchewan farm data
     this.initializeDummyData();
@@ -60,7 +69,7 @@ export class MemStorage implements IStorage {
       name: "Prairie View Farm",
       location: "Saskatchewan, RM of Biggar",
       acreage: 2400,
-      mapImage: "/farm-map-1.jpg",
+      mapImage: "/farm-map-1.jpg"
     };
     
     const farm2: Farm = {
@@ -68,7 +77,7 @@ export class MemStorage implements IStorage {
       name: "Golden Harvest Fields",
       location: "Saskatchewan, RM of Moose Jaw",
       acreage: 3200,
-      mapImage: "/farm-map-2.jpg",
+      mapImage: "/farm-map-2.jpg"
     };
     
     const farm3: Farm = {
@@ -76,7 +85,7 @@ export class MemStorage implements IStorage {
       name: "Northstar Farmland",
       location: "Saskatchewan, RM of Saskatoon",
       acreage: 1800,
-      mapImage: "/farm-map-3.jpg",
+      mapImage: "/farm-map-3.jpg"
     };
 
     this.farms.set(farm1.id, farm1);
@@ -172,7 +181,11 @@ export class MemStorage implements IStorage {
 
   async createFarm(insertFarm: InsertFarm): Promise<Farm> {
     const id = `RM-${Math.floor(Math.random() * 900 + 100)}`;
-    const farm: Farm = { ...insertFarm, id };
+    const farm: Farm = { 
+      ...insertFarm, 
+      id,
+      mapImage: insertFarm.mapImage || null // Ensure mapImage is either a string or null
+    };
     this.farms.set(id, farm);
     return farm;
   }

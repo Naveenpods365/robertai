@@ -1,7 +1,7 @@
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { SidebarTrigger } from "./ui/sidebar";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 import { Bell, Search, Mic, Cloud, Sun } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { Weather } from "@shared/schema";

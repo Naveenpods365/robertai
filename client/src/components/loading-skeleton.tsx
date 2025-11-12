@@ -1,5 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Card } from "./ui/card";
+import { Skeleton } from "./ui/skeleton";
 import { AlertCircle } from "lucide-react";
 
 export function DashboardSkeleton() {
