@@ -23,6 +23,32 @@ export default defineConfig({
       },
     }),
   ],
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      '@tanstack/react-query',
+      '@radix-ui/react-tooltip',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-label',
+      '@radix-ui/react-navigation-menu',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-toast',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-collapsible',
+      '@radix-ui/react-switch',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-progress',
+      '@radix-ui/react-separator',
+      'class-variance-authority',
+      'clsx',
+      'tailwind-merge',
+      'lucide-react'
+    ]
+  },
   resolve: {
     alias: {
       "@": resolvePath("client/src"),
@@ -34,6 +60,10 @@ export default defineConfig({
   build: {
     outDir: resolvePath("dist"),
     emptyOutDir: true,
+    target: 'esnext',
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
     rollupOptions: {
       output: {
         manualChunks: {
@@ -53,15 +83,5 @@ export default defineConfig({
   preview: {
     port: 3000,
     strictPort: true,
-  },
-  optimizeDeps: {
-    include: [
-      'react',
-      'react-dom',
-      'react-router-dom',
-      '@radix-ui/react-toast',
-      'class-variance-authority',
-      'lucide-react',
-    ],
   },
 });
