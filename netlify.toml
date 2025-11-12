@@ -1,8 +1,8 @@
 [build]
   # Directory to change to before starting the build
   base = "/"
-  # Default build command
-  command = "npm run build"
+  # Custom build command for Netlify
+  command = "npm run netlify-build"
   # Directory containing the deploy-ready files
   publish = "dist"
   # Directory containing Netlify Functions
